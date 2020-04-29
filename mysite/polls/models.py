@@ -1,4 +1,7 @@
+from datetime import timezone
+
 from django.db import models
+from django.utils.datetime_safe import datetime
 
 
 class Question(models.Model):
@@ -6,6 +9,8 @@ class Question(models.Model):
     pub_date = models.DateTimeField('data published')
     def __str__(self):
         return self.question_text
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
