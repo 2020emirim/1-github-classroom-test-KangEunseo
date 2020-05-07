@@ -1,0 +1,13 @@
+body {
+    background: white url("https://placeimg.com/500/500/any") no-repeat;
+    background-position: bottom right;
+}
+
+li a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
